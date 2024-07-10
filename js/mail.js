@@ -22,7 +22,10 @@ function SendMail(event) {
     alert('Please enter a valid 10-digit phone number.');
     return;
   }
-
+  if (!validateName(name)) {
+    alert('Please enter a valid name.');
+    return ; 
+}
 
 
   var templateParams = {
@@ -51,4 +54,10 @@ function validateEmail(email) {
 function validatePhone(phone) {
   return /^\d{10}$/.test(phone);
 }
+
+function validateName(name) {
+  const nameRegex = /^[A-Za-z\s]+$/;
+  return nameRegex.test(name) && name.trim().length > 0;
+}
+
 }
